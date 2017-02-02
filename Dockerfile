@@ -2,10 +2,9 @@ FROM alpine:latest
 
 MAINTAINER Joel Chen <http://lnkd.in/bwwnBWR>
 
-RUN curl --silent --show-error --fail --location \
-    --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
-    "https://github.com/ekanite/ekanite/releases/download/v1.2.0/ekanited-v1.2.0-linux-amd64.tar.gz" \
-    | tar --no-same-owner -C /usr/bin/ -xz ekanited
+RUN wget https://github.com/ekanite/ekanite/releases/download/v1.2.0/ekanited-v1.2.0-linux-amd64.tar.gz && \
+    tar -xzf ekanited-v1.2.0-linux-amd64.tar.gz && mv ekanited-v1.1.0-linux-amd64/ekanited /usr/bin/ekanited && \
+    rm -rf ekanited-v1.2.0-linux-amd64.tar.gz ekanited-v1.2.0-linux-amd64
 
 EXPOSE 5514 8080 9950 9951
 
