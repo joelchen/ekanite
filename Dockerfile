@@ -2,7 +2,7 @@ FROM clearlinux:latest
 
 MAINTAINER Joel Chen <http://lnkd.in/bwwnBWR>
 
-RUN curl --silent --show-error --fail --location \
+RUN swupd bundle-add curl && curl --silent --show-error --fail --location \
     --header "Accept: application/tar+gzip, application/x-gzip, application/octet-stream" -o - \
     "https://github.com/ekanite/ekanite/releases/download/v1.2.0/ekanited-v1.2.0-linux-amd64.tar.gz" \
     | tar --no-same-owner -C /usr/bin/ -xz --strip-components 1
