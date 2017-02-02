@@ -9,4 +9,4 @@ RUN apk --update --no-cache add curl && curl --silent --show-error --fail --loca
 
 EXPOSE 5514 8080 9950 9951
 
-ENTRYPOINT ["/usr/bin/ekanited"]
+CMD ["/usr/bin/ekanited"]
