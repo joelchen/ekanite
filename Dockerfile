@@ -9,4 +9,4 @@ RUN apt-get update && apt-get -y install curl && curl --silent --show-error --fa
 
 EXPOSE 5514 8080 9950 9951
 
-ENTRYPOINT ["/usr/bin/ekanited"]
+ENTRYPOINT ["/usr/bin/ekanited", "-tcp", "0.0.0.0:5514", "-queryhttp", "0.0.0.0:8080"]
